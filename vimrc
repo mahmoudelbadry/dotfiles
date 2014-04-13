@@ -14,7 +14,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'taglist.vim'
 Bundle 'walm/jshint.vim'
 Bundle 'altercation/vim-colors-solarized'
-Bundle 'mattn/zencoding-vim'
+Bundle 'mattn/emmet-vim'
 Bundle 'vim-scripts/javacomplete'
 Bundle 'bling/vim-airline'
 Bundle "MarcWeber/vim-addon-mw-utils"
@@ -102,10 +102,6 @@ function! NumberToggle()
 endfunc
 
 nnoremap <c-F9> :call NumberToggle()<cr>
-nnoremap <up> <nop>
-nnoremap <down> <nop>
-nnoremap <left> <nop>
-nnoremap <right> <nop>
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
