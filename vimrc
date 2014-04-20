@@ -29,13 +29,14 @@ Bundle "editorconfig/editorconfig-vim"
 Bundle "ervandew/supertab"
 Bundle "sickill/vim-monokai"
 Bundle "tpope/vim-vinegar"
+Bundle "scrooloose/syntastic"
 
 
 "settings
 filetype plugin indent on
 syntax enable
 set background=dark
-colorscheme solarized 
+colorscheme monokai 
 nnoremap <leader>k :grep! "\b<C-R><C-W>\b":cw<CR>
 nnoremap <leader>n :cn <CR>
 nnoremap <leader>p :cp <CR>
@@ -101,11 +102,16 @@ function! NumberToggle()
 	endif
 endfunc
 
+nnoremap <leader>o o<ESC>
+nnoremap <leader>O O<ESC>
 nnoremap <c-F9> :call NumberToggle()<cr>
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+nnoremap b[ :bp<CR>
+nnoremap b] :bn<CR>
+nnoremap b# :b#<CR>
 
 if executable('ag')
       " Use ag over grep
