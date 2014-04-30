@@ -30,7 +30,7 @@ Bundle "ervandew/supertab"
 Bundle "sickill/vim-monokai"
 Bundle "tpope/vim-vinegar"
 Bundle "scrooloose/syntastic"
-
+Bundle "majutsushi/tagbar"
 
 "settings
 filetype plugin indent on
@@ -40,6 +40,7 @@ colorscheme monokai
 nnoremap <leader>k :grep! "\b<C-R><C-W>\b":cw<CR>
 nnoremap <leader>n :cn <CR>
 nnoremap <leader>p :cp <CR>
+nnoremap <leader>t :TagbarToggle<CR>
 autocmd FileType javascript nnoremap <leader>j :JSHint<CR>
 autocmd FileType php nnoremap <leader>j :w :!php -l<CR>
 autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
@@ -84,6 +85,13 @@ let g:ctrlp_cmd = 'CtrlPMixed'
 let g:ctrlp_working_path_mode = 'rc'
 let g:ctrlp_use_caching = 1
 let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_buftag_types = {
+\ 'rust' : '--language-force=rust --rust-types=fTm',
+\ 'javascript' : {
+      \ 'bin': 'jsctags',
+      \ 'args': '-f -'
+      \ }
+\ }
 
 "Airline settings
 let g:airline_powerline_fonts=1
