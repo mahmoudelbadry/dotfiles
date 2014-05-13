@@ -61,3 +61,4 @@ fi
 rvm default
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+. $HOME/z/z.sh

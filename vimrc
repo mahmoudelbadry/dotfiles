@@ -31,22 +31,15 @@ Bundle "sickill/vim-monokai"
 Bundle "tpope/vim-vinegar"
 Bundle "scrooloose/syntastic"
 Bundle "majutsushi/tagbar"
+Bundle "wting/rust.vim"
+Bundle "tpope/vim-surround"
+Bundle "marijnh/tern_for_vim"
 
 "settings
 filetype plugin indent on
 syntax enable
 set background=dark
 colorscheme monokai 
-nnoremap <leader>k :grep! "\b<C-R><C-W>\b":cw<CR>
-nnoremap <leader>n :cn <CR>
-nnoremap <leader>p :cp <CR>
-nnoremap <leader>t :TagbarToggle<CR>
-autocmd FileType javascript nnoremap <leader>j :JSHint<CR>
-autocmd FileType php nnoremap <leader>j :w :!php -l<CR>
-autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
-map <C-s> :w <CR>
-map <C-n> :NERDTreeToggle<CR>
-map <C-m> :CtrlPBufTag<CR>
 set expandtab
 set tabstop=4
 set shiftwidth=4
@@ -87,11 +80,13 @@ let g:ctrlp_use_caching = 1
 let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_buftag_types = {
 \ 'rust' : '--language-force=rust --rust-types=fTm',
-\ 'javascript' : {
-      \ 'bin': 'jsctags',
-      \ 'args': '-f -'
-      \ }
 \ }
+let g:ctrlp_jump_to_buffer = 2 " Jump to tab AND buffer if already open
+let g:ctrlp_split_window = 1 " <CR> = New Tab
+
+let g:tagbar_type_javascript = {
+    \ 'ctagsbin' : '~/local/bin/jsctags'
+    \ }
 
 "Airline settings
 let g:airline_powerline_fonts=1
@@ -110,9 +105,19 @@ function! NumberToggle()
 	endif
 endfunc
 
+"Mappings
+nnoremap <leader>k :grep! "\b<C-R><C-W>\b":cw<CR>
+nnoremap <leader>n :cn <CR>
+nnoremap <leader>p :cp <CR>
+nnoremap <leader>b :TagbarToggle<CR>
+autocmd FileType javascript nnoremap <leader>j :JSHint<CR>
+autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
+map <C-s> :w <CR>
+map <C-n> :NERDTreeToggle<CR>
+map <C-m> :CtrlPBufTag<CR>
 nnoremap <leader>o o<ESC>
 nnoremap <leader>O O<ESC>
-nnoremap <c-F9> :call NumberToggle()<cr>
+nnoremap <C-F9> :call NumberToggle()<cr>
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
