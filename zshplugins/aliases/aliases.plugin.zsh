@@ -1,7 +1,0 @@
-alias mkd='mkdir'
-alias rd='rm -r'
-alias pingg='ping -c 3 www.google.com'
-alias aerr='tail -f /var/log/apache2/error.log'
-alias aacc='tail -f /var/log/apache2/access.log'
-alias server='python -m SimpleHTTPServer 8000'
-alias e='$EDITOR'

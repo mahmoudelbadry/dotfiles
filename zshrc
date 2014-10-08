@@ -19,6 +19,7 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle rupa/z
 antigen bundle mahmoudelbadry/zsh-aliases
 antigen bundle mahmoudelbadry/zsh-mkcd
+antigen bundle mahmoudelbadry/zsh-svn
 
 # Load the theme.
 antigen theme robbyrussell
