@@ -1,64 +1,40 @@
-# Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
+source $HOME/antigen/antigen.zsh
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
-export N_PREFIX=/home/bedo/local
-export EDITOR=gvim
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-alias zshconfig="$EDITOR ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+# Load the oh-my-zsh's library.
+antigen use oh-my-zsh
 
-# Set to this to use case-sensitive completion
-# CASE_SENSITIVE="true"
+# Bundles from the default repo (robbyrussell's oh-my-zsh).
+antigen bundle git
+antigen bundle svn
+antigen bundle common-aliases
+# antigen bundle aliases
+antigen bundle vundle
+antigen bundle cp
+antigen bundle laravel4
 
-# Comment this out to disable bi-weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
 
-# Uncomment to change how often before auto-updates occur? (in days)
-# export UPDATE_ZSH_DAYS=13me
+# Syntax highlighting bundle.
+antigen bundle zsh-users/zsh-syntax-highlighting
 
-# Uncomment following line if you want to disable colors in ls
-# DISABLE_LS_COLORS="true"
+antigen bundle rupa/z
+antigen bundle mahmoudelbadry/zsh-aliases
+antigen bundle mahmoudelbadry/zsh-mkcd
 
-# Uncomment following line if you want to disable autosetting terminal title.
-# DISABLE_AUTO_TITLE="true"
+# Load the theme.
+antigen theme robbyrussell
 
-# Uncomment following line if you want to disable command autocorrection
-# DISABLE_CORRECTION="true"
+# Tell antigen that you're done.
+antigen apply
 
-# Uncomment following line if you want red dots to be displayed while waiting for completion
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment following line if you want to disable marking untracked files under
-# VCS as dirty. This makes repository status check for large repositories much,
-# much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git svn common-aliases aliases vundle cp mkcd)
-
-source $ZSH/oh-my-zsh.sh
-
-# Customize to your needs...
 export PATH=$PATH:/home/bedo/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/bedo/.rvm/bin
 export PATH=$HOME/local/bin:$PATH
-
-
-#aliases
-# rvm
+export PATH=$HOME/android/sdk/tools:$PATH
+export PATH=$HOME/android/sdk/platform-tools:$PATH
+export PATH=$PATH:/usr/local/go/bin
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+EDITOR=gvim
 source ~/.nvm/nvm.sh
 
-if [[ ! $TERM =~ screen ]]; then
-	exec tmux
-fi
-rvm default
+alias betty=/home/bedo/betty/main.rb
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-. $HOME/z/z.sh
+rvm default
