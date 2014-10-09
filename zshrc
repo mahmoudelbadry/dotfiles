@@ -10,7 +10,7 @@ antigen bundle common-aliases
 # antigen bundle aliases
 antigen bundle vundle
 antigen bundle cp
-antigen bundle laravel4
+antigen bundle vi-mode 
 
 
 # Syntax highlighting bundle.
