@@ -3,24 +3,27 @@ source $HOME/antigen/antigen.zsh
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
 
+antigen bundles <<EOBUNDLES
+
 # Bundles from the default repo (robbyrussell's oh-my-zsh).
-antigen bundle git
-antigen bundle svn
-antigen bundle common-aliases
-# antigen bundle aliases
-antigen bundle vundle
-antigen bundle cp
-antigen bundle vi-mode 
+git
+svn
+common-aliases
+vundle
+cp
+vi-mode 
 
 
 # Syntax highlighting bundle.
-antigen bundle zsh-users/zsh-syntax-highlighting
+zsh-users/zsh-syntax-highlighting
+rupa/z
+mahmoudelbadry/zsh-aliases
+mahmoudelbadry/zsh-mkcd
+mahmoudelbadry/zsh-svn
+mahmoudelbadry/zsh-launch
+Tarrasch/zsh-bd
 
-antigen bundle rupa/z
-antigen bundle mahmoudelbadry/zsh-aliases
-antigen bundle mahmoudelbadry/zsh-mkcd
-antigen bundle mahmoudelbadry/zsh-svn
-
+EOBUNDLES
 # Load the theme.
 antigen theme robbyrussell
 
@@ -35,7 +38,10 @@ export PATH=$PATH:/usr/local/go/bin
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 EDITOR=gvim
 source ~/.nvm/nvm.sh
-
+bindkey -M vicmd '?' history-incremental-search-backward
 alias betty=/home/bedo/betty/main.rb
 
 rvm default
+stty -ixon
+
+[ -s "/home/bedo/.kre/kvm/kvm.sh" ] && . "/home/bedo/.kre/kvm/kvm.sh" # Load kvm

@@ -1,42 +1,48 @@
 set number
 set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/vundle
-call vundle#rc()
+set rtp+=~/.vim/bundle/neobundle.vim/
+call neobundle#begin(expand('~/.vim/bundle/')) 
 
 "vundle bundle
-Bundle 'gmarik/vundle'
+" Plugin 'gmarik/vundle'
+NeoBundleFetch 'Shougo/neobundle.vim'
 
-"bundles
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-markdown'
-Bundle 'scrooloose/nerdtree'
-Bundle 'taglist.vim'
-Bundle 'walm/jshint.vim'
-Bundle 'mattn/emmet-vim'
-Bundle 'vim-scripts/javacomplete'
-Bundle 'bling/vim-airline'
-Bundle "MarcWeber/vim-addon-mw-utils"
-Bundle "tomtom/tlib_vim"
-Bundle "garbas/vim-snipmate"
-Bundle "groenewege/vim-less"
-Bundle "joonty/vdebug"
-Bundle "kien/ctrlp.vim"
-Bundle "jiangmiao/auto-pairs"
-Bundle "tomtom/tcomment_vim"
-Bundle "editorconfig/editorconfig-vim"
-Bundle "ervandew/supertab"
-Bundle "sickill/vim-monokai"
-Bundle "tpope/vim-vinegar"
-Bundle "scrooloose/syntastic"
-Bundle "majutsushi/tagbar"
-Bundle "wting/rust.vim"
-Bundle "tpope/vim-surround"
-Bundle "tpope/vim-unimpaired"
-Bundle "marijnh/tern_for_vim"
-Bundle "triglav/vim-visual-increment"
-Bundle "sheerun/vim-polyglot"
+"plugins
+NeoBundle 'tpope/vim-rails'
+NeoBundle 'tpope/vim-markdown'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'taglist.vim'
+NeoBundle 'walm/jshint.vim'
+NeoBundle 'mattn/emmet-vim'
+NeoBundle 'vim-scripts/javacomplete'
+NeoBundle 'bling/vim-airline'
+NeoBundle 'MarcWeber/vim-addon-mw-utils'
+NeoBundle 'tomtom/tlib_vim'
+NeoBundle 'SirVer/ultisnips'
+NeoBundle 'Valloric/YouCompleteMe'
+NeoBundle 'groenewege/vim-less'
+NeoBundle 'joonty/vdebug'
+NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'jiangmiao/auto-pairs'
+NeoBundle 'tomtom/tcomment_vim'
+NeoBundle 'editorconfig/editorconfig-vim'
+NeoBundle 'ervandew/supertab'
+NeoBundle 'sickill/vim-monokai'
+NeoBundle 'tpope/vim-vinegar'
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'majutsushi/tagbar'
+NeoBundle 'wting/rust.vim'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'tpope/vim-unimpaired'
+NeoBundle 'marijnh/tern_for_vim'
+NeoBundle 'triglav/vim-visual-increment'
+NeoBundle 'sheerun/vim-polyglot'
+NeoBundle 'suan/vim-instant-markdown'
+NeoBundle 'mahmoudelbadry/vim-snippets', {'rev': 'my-snippets'}
+call neobundle#end()
 "settings
+filetype plugin on
 filetype plugin indent on
 set t_Co=256
 syntax on 
@@ -49,7 +55,7 @@ set laststatus=2
 set iskeyword-=_
 set hidden
 set relativenumber
-
+let g:instant_markdown_autostart = 0
 " Local dirs
 set noswapfile
 set nobackup
@@ -93,6 +99,9 @@ let g:tagbar_type_javascript = {
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled = 1
 
+let g:UltiSnipsExpandTrigger="<c-k>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 set guioptions-=T
 set guioptions-=m
 set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 12
