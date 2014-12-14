@@ -39,7 +39,9 @@ NeoBundle 'marijnh/tern_for_vim'
 NeoBundle 'triglav/vim-visual-increment'
 NeoBundle 'sheerun/vim-polyglot'
 NeoBundle 'suan/vim-instant-markdown'
+NeoBundle 'etaoins/vim-volt-syntax'
 NeoBundle 'mahmoudelbadry/vim-snippets', {'rev': 'my-snippets'}
+NeoBundle 'christoomey/vim-tmux-navigator'
 call neobundle#end()
 "settings
 filetype plugin on
@@ -60,17 +62,18 @@ let g:instant_markdown_autostart = 0
 set noswapfile
 set nobackup
 set undodir=~/.vim/undo
+set mouse=a
 
 let mapleader=','
 
 "VDebug settings
 let g:vdebug_options= {
-    \ "port" : 9000,
+    \ "port" : 9001,
     \ "server" : 'localhost',
     \ "timeout" : 5000,
     \ "on_close" : 'detach',
     \ "break_on_open" : 0,
-    \ "ide_key" : 'root',
+    \ "ide_key" : 'netbeans-xdebug',
     \ "path_maps" : {},
     \ "debug_window_level" : 0,
     \ "debug_file_level" : 0,
@@ -120,6 +123,7 @@ nnoremap <leader>k :grep! "\b<C-R><C-W>\b":cw<CR>
 nnoremap <leader>b :TagbarToggle<CR>
 nnoremap <leader>a gg=G''
 autocmd FileType javascript nnoremap <leader>j :JSHint<CR>
+autocmd FileType volt set commentstring={#\ %s\ #}
 autocmd FileType php set commentstring=//\ %s
 autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
 map <C-s> :w <CR>
@@ -145,3 +149,4 @@ if executable('ag')
       "     .gitignore
     let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
+
