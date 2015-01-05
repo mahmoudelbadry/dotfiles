@@ -2,6 +2,8 @@ set number
 set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/neobundle.vim/
+set splitbelow
+set splitright
 call neobundle#begin(expand('~/.vim/bundle/')) 
 
 "vundle bundle
@@ -38,10 +40,10 @@ NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'marijnh/tern_for_vim'
 NeoBundle 'triglav/vim-visual-increment'
 NeoBundle 'sheerun/vim-polyglot'
-NeoBundle 'suan/vim-instant-markdown'
 NeoBundle 'etaoins/vim-volt-syntax'
 NeoBundle 'mahmoudelbadry/vim-snippets', {'rev': 'my-snippets'}
 NeoBundle 'christoomey/vim-tmux-navigator'
+NeoBundle 'shime/vim-livedown'
 call neobundle#end()
 "settings
 filetype plugin on
@@ -57,7 +59,8 @@ set laststatus=2
 set iskeyword-=_
 set hidden
 set relativenumber
-let g:instant_markdown_autostart = 0
+let g:livedown_autostart = 0
+let g:livedown_port = 1337
 " Local dirs
 set noswapfile
 set nobackup
@@ -107,8 +110,6 @@ let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 set guioptions-=T
 set guioptions-=m
-set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 12
-
 "functions
 function! NumberToggle()
 	if(&relativenumber == 1)
@@ -141,6 +142,7 @@ nnoremap b] :bn<CR>
 nnoremap b# :b#<CR>
 nnoremap <C-Tab> gt
 nnoremap <S-Tab> gT
+map gm :call LivedownPreview()<CR>
 
 if executable('ag')
       " Use ag over grep

@@ -1,0 +1,11 @@
+#mostly taken from Mathias Bynens's dotfiles https://mths.be/dotfiles
+[alias]
+    # Pull in remote changes for the current repository and all its submodules
+    p = !"git pull; git submodule foreach git pull origin master"
+    # Clone a repository including all submodules
+    cl = clone --recursive
+    branches = branch -a
+    c = commit -m 
+    go = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
+    s = status
+    cr = checkout .
