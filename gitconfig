@@ -2,6 +2,7 @@
 [alias]
     # Pull in remote changes for the current repository and all its submodules
     p = !"git pull; git submodule foreach git pull origin master"
+    ph= push origin master
     # Clone a repository including all submodules
     cl = clone --recursive
     branches = branch -a

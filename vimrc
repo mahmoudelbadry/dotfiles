@@ -44,6 +44,8 @@ NeoBundle 'etaoins/vim-volt-syntax'
 NeoBundle 'mahmoudelbadry/vim-snippets', {'rev': 'my-snippets'}
 NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'shime/vim-livedown'
+NeoBundle 'tpope/vim-repeat'
+NeoBundle 'tommcdo/vim-exchange'
 call neobundle#end()
 "settings
 filetype plugin on
@@ -123,6 +125,7 @@ endfunc
 nnoremap <leader>k :grep! "\b<C-R><C-W>\b":cw<CR>
 nnoremap <leader>b :TagbarToggle<CR>
 nnoremap <leader>a gg=G''
+nnoremap <leader>dd "_dd
 autocmd FileType javascript nnoremap <leader>j :JSHint<CR>
 autocmd FileType volt set commentstring={#\ %s\ #}
 autocmd FileType php set commentstring=//\ %s
