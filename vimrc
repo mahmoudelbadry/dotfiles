@@ -24,7 +24,7 @@ NeoBundle 'tomtom/tlib_vim'
 NeoBundle 'SirVer/ultisnips'
 NeoBundle 'Valloric/YouCompleteMe'
 NeoBundle 'groenewege/vim-less'
-NeoBundle 'joonty/vdebug'
+NeoBundle 'joonty/vdebug', {'rev': 'dev'}
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'jiangmiao/auto-pairs'
 NeoBundle 'tomtom/tcomment_vim'
@@ -46,6 +46,8 @@ NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'shime/vim-livedown'
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tommcdo/vim-exchange'
+NeoBundle 'terryma/vim-multiple-cursors'
+NeoBundle 'airblade/vim-gitgutter'
 call neobundle#end()
 "settings
 filetype plugin on
@@ -78,6 +80,7 @@ let g:vdebug_options= {
     \ "timeout" : 5000,
     \ "on_close" : 'detach',
     \ "break_on_open" : 0,
+    \ "continuous_mode" : 1,
     \ "ide_key" : 'netbeans-xdebug',
     \ "path_maps" : {},
     \ "debug_window_level" : 0,
@@ -106,6 +109,7 @@ let g:tagbar_type_javascript = {
 "Airline settings
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled = 1
+" let g:airline_theme='wombat'
 
 let g:UltiSnipsExpandTrigger="<c-k>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
@@ -127,13 +131,15 @@ nnoremap <leader>b :TagbarToggle<CR>
 nnoremap <leader>a gg=G''
 nnoremap <leader>dd "_dd
 autocmd FileType javascript nnoremap <leader>j :JSHint<CR>
+" autocmd FileType jasmine.javascript set commentstring=//\ %s
 autocmd FileType volt set commentstring={#\ %s\ #}
 autocmd FileType php set commentstring=//\ %s
 autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
 map <C-s> :w <CR>
 inoremap <C-s> <ESC>:w<CR>a
-map <C-n> :NERDTreeToggle<CR>
+map <C-f> :NERDTreeToggle<CR>
 map <C-m> :CtrlPBufTag<CR>
+nnoremap <leader>m zf%
 nnoremap <leader>v :tabe $MYVIMRC<CR>
 nnoremap <C-F9> :call NumberToggle()<cr>
 nnoremap <C-h> <C-w>h
