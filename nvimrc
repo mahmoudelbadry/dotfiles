@@ -1,61 +1,57 @@
 set number
 set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/neobundle.vim/
 set splitbelow
 set splitright
 set ttimeout
 set ttimeoutlen=0
-call neobundle#begin(expand('~/.vim/bundle/')) 
-
-"vundle bundle
-" Plugin 'gmarik/vundle'
-NeoBundleFetch 'Shougo/neobundle.vim'
+call plug#begin('~/.nvim/plugged')
 
 "plugins
-NeoBundle 'tpope/vim-rails'
-NeoBundle 'tpope/vim-markdown'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'taglist.vim'
-NeoBundle 'walm/jshint.vim'
-NeoBundle 'mattn/emmet-vim'
-NeoBundle 'vim-scripts/javacomplete'
-NeoBundle 'bling/vim-airline'
-NeoBundle 'MarcWeber/vim-addon-mw-utils'
-NeoBundle 'tomtom/tlib_vim'
-NeoBundle 'SirVer/ultisnips'
-NeoBundle 'Valloric/YouCompleteMe'
-NeoBundle 'groenewege/vim-less'
-NeoBundle 'joonty/vdebug', {'rev': 'dev'}
-NeoBundle 'kien/ctrlp.vim'
-NeoBundle 'jiangmiao/auto-pairs'
-NeoBundle 'tomtom/tcomment_vim'
-NeoBundle 'editorconfig/editorconfig-vim'
-NeoBundle 'ervandew/supertab'
-NeoBundle 'sickill/vim-monokai'
-NeoBundle 'tpope/vim-vinegar'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'majutsushi/tagbar'
-NeoBundle 'wting/rust.vim'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'tpope/vim-unimpaired'
-NeoBundle 'marijnh/tern_for_vim'
-NeoBundle 'triglav/vim-visual-increment'
-NeoBundle 'sheerun/vim-polyglot'
-NeoBundle 'etaoins/vim-volt-syntax'
-NeoBundle 'mahmoudelbadry/vim-snippets', {'rev': 'my-snippets'}
-NeoBundle 'christoomey/vim-tmux-navigator'
-NeoBundle 'shime/vim-livedown'
-NeoBundle 'tpope/vim-repeat'
-NeoBundle 'tommcdo/vim-exchange'
-NeoBundle 'terryma/vim-multiple-cursors'
-NeoBundle 'airblade/vim-gitgutter'
-call neobundle#end()
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-markdown'
+Plug 'scrooloose/nerdtree'
+Plug 'taglist.vim'
+Plug 'walm/jshint.vim'
+Plug 'mattn/emmet-vim'
+Plug 'vim-scripts/javacomplete'
+Plug 'bling/vim-airline'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+Plug 'SirVer/ultisnips'
+Plug 'Valloric/YouCompleteMe' , {'do': './install.sh'}
+Plug 'groenewege/vim-less'
+Plug 'joonty/vdebug', {'branch': 'dev'}
+Plug 'kien/ctrlp.vim'
+Plug 'jiangmiao/auto-pairs'
+Plug 'tomtom/tcomment_vim'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'ervandew/supertab'
+Plug 'sickill/vim-monokai'
+Plug 'tpope/vim-vinegar'
+Plug 'scrooloose/syntastic'
+Plug 'majutsushi/tagbar'
+Plug 'wting/rust.vim'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'marijnh/tern_for_vim'
+Plug 'triglav/vim-visual-increment'
+Plug 'sheerun/vim-polyglot'
+Plug 'etaoins/vim-volt-syntax'
+Plug 'mahmoudelbadry/vim-snippets', {'branch': 'my-snippets'}
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'shime/vim-livedown'
+Plug 'tpope/vim-repeat'
+Plug 'tommcdo/vim-exchange'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'airblade/vim-gitgutter'
+call plug#end()
 "settings
 filetype plugin on
 filetype plugin indent on
 set t_Co=256
-syntax on 
+set bs=eol,indent,start
+syntax enable 
 set background=dark
 colorscheme monokai 
 set expandtab
@@ -116,6 +112,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:UltiSnipsExpandTrigger="<c-k>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" let g:UltiSnipsSnippetsDir="~/.nvim"
 set guioptions-=T
 set guioptions-=m
 "functions
@@ -162,4 +159,4 @@ if executable('ag')
       "     .gitignore
     let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
-
+let g:python_host_prog='/usr/bin/python'
