@@ -18,7 +18,6 @@ Plug 'vim-scripts/javacomplete'
 Plug 'bling/vim-airline'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
-Plug 'SirVer/ultisnips'
 Plug 'Valloric/YouCompleteMe' , {'do': './install.sh'}
 Plug 'groenewege/vim-less'
 Plug 'joonty/vdebug', {'branch': 'dev'}
@@ -45,6 +44,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tommcdo/vim-exchange'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'airblade/vim-gitgutter'
+Plug 'SirVer/ultisnips'
 call plug#end()
 "settings
 filetype plugin on
@@ -108,10 +108,9 @@ let g:tagbar_type_javascript = {
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled = 1
 " let g:airline_theme='wombat'
-
-let g:UltiSnipsExpandTrigger="<c-k>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsExpandTrigger="<C-g>"
+let g:UltiSnipsJumpForwardTrigger="<C-1>"
+let g:UltiSnipsJumpBackwardTrigger="<C-2>"
 " let g:UltiSnipsSnippetsDir="~/.nvim"
 set guioptions-=T
 set guioptions-=m
