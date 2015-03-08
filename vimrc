@@ -162,4 +162,10 @@ if executable('ag')
       "     .gitignore
     let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
-
+nmap <leader>p :call <SID>SynStack()<CR>
+function! <SID>SynStack()
+    if !exists("*synstack")
+        return
+    endif
+    echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc

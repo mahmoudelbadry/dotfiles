@@ -33,7 +33,7 @@ Plug 'majutsushi/tagbar'
 Plug 'wting/rust.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
-Plug 'marijnh/tern_for_vim'
+Plug 'marijnh/tern_for_vim', {'do': 'npm install'}
 Plug 'triglav/vim-visual-increment'
 Plug 'sheerun/vim-polyglot'
 Plug 'etaoins/vim-volt-syntax'
@@ -51,7 +51,7 @@ filetype plugin on
 filetype plugin indent on
 set t_Co=256
 set bs=eol,indent,start
-syntax enable 
+syntax on 
 set background=dark
 colorscheme monokai 
 set expandtab
@@ -159,3 +159,14 @@ if executable('ag')
     let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
 let g:python_host_prog='/usr/bin/python'
+nmap <leader>p :call <SID>SynStack()<CR>
+function! <SID>SynStack()
+    if !exists("*synstack")
+        return
+    endif
+    echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
+hi! link htmlTag Function                                                                                                                                                                                                           
+hi! link htmlTagName Statement                                                                                                                                                                                                      
+hi! link htmlEndTag Identifier                                                                                                                                                                                                      
+hi! link htmlArg Type   
