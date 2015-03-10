@@ -3,8 +3,6 @@ set nocompatible
 filetype off
 set splitbelow
 set splitright
-set ttimeout
-set ttimeoutlen=0
 call plug#begin('~/.nvim/plugged')
 
 "plugins
@@ -45,15 +43,18 @@ Plug 'tommcdo/vim-exchange'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'airblade/vim-gitgutter'
 Plug 'SirVer/ultisnips'
+Plug 'tpope/vim-sensible'
+Plug 'justinmk/vim-sneak'
+Plug 'inside/vim-search-pulse'
 call plug#end()
+set ttimeout
+set ttimeoutlen=0
 "settings
 filetype plugin on
 filetype plugin indent on
 set t_Co=256
-set bs=eol,indent,start
-syntax on 
 set background=dark
-colorscheme monokai 
+colorscheme monokai
 set expandtab
 set tabstop=4
 set shiftwidth=4
@@ -170,3 +171,4 @@ hi! link htmlTag Function
 hi! link htmlTagName Statement                                                                                                                                                                                                      
 hi! link htmlEndTag Identifier                                                                                                                                                                                                      
 hi! link htmlArg Type   
+let g:sneak#streak = 1
