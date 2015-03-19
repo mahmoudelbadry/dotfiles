@@ -46,9 +46,13 @@ Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-sensible'
 Plug 'justinmk/vim-sneak'
 Plug 'inside/vim-search-pulse'
+Plug 'Valloric/MatchTagAlways'
+Plug 'jbgutierrez/vim-partial'
 call plug#end()
 set ttimeout
 set ttimeoutlen=0
+set lazyredraw
+set nobomb
 "settings
 filetype plugin on
 filetype plugin indent on
@@ -115,6 +119,7 @@ let g:UltiSnipsJumpBackwardTrigger="<C-2>"
 " let g:UltiSnipsSnippetsDir="~/.nvim"
 set guioptions-=T
 set guioptions-=m
+set iskeyword-=_
 "functions
 function! NumberToggle()
 	if(&relativenumber == 1)
@@ -154,7 +159,7 @@ map gm :call LivedownPreview()<CR>
 
 if executable('ag')
       " Use ag over grep
-    set grepprg=agi
+    set grepprg=ag
       "     " Use ag in CtrlP for listing files. Lightning fast and respects
       "     .gitignore
     let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
@@ -172,3 +177,13 @@ hi! link htmlTagName Statement
 hi! link htmlEndTag Identifier                                                                                                                                                                                                      
 hi! link htmlArg Type   
 let g:sneak#streak = 1
+let g:mta_filetypes = {
+    \ 'html' : 1,
+    \ 'xhtml' : 1,
+    \ 'xml' : 1,
+    \ 'jinja' : 1,
+    \ 'volt' : 1,
+    \}
+let g:partial_templates = {
+      \   'volt': '{% include %s %}',
+      \ }
