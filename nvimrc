@@ -187,3 +187,5 @@ let g:mta_filetypes = {
 let g:partial_templates = {
       \   'volt': '{% include %s %}',
       \ }
+tnoremap <C-a> <C-\><C-n>
+nnoremap <leader>t :terminal<CR>
