@@ -48,6 +48,7 @@ Plug 'justinmk/vim-sneak'
 Plug 'inside/vim-search-pulse'
 Plug 'Valloric/MatchTagAlways'
 Plug 'jbgutierrez/vim-partial'
+Plug 'chriskempson/tomorrow-theme'
 call plug#end()
 set ttimeout
 set ttimeoutlen=0
@@ -144,7 +145,7 @@ inoremap <C-s> <ESC>:w<CR>a
 map <C-f> :NERDTreeToggle<CR>
 map <C-m> :CtrlPBufTag<CR>
 nnoremap <leader>m zf%
-nnoremap <leader>v :tabe $MYVIMRC<CR>
+nnoremap <leader><leader>v :e $MYVIMRC<CR>
 nnoremap <C-F9> :call NumberToggle()<cr>
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
