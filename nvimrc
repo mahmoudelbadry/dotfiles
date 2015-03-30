@@ -189,3 +189,15 @@ let g:partial_templates = {
       \ }
 tnoremap <C-a> <C-\><C-n>
 nnoremap <leader>t :terminal<CR>
+tnoremap <C-k> <C-\><C-n><C-w>k
+tnoremap <C-j> <C-\><C-n><C-w>j
+tnoremap <C-h> <C-\><C-n><C-w>h
+tnoremap <C-l> <C-\><C-n><C-w>l
+nnoremap <leader>ts :split<CR>:terminal<CR>
+nnoremap <leader>tv :vsplit<CR>:terminal<CR>
+nnoremap <leader>s :split<CR>
+nnoremap <leader>v :vsplit<CR>
+function! AirlineInit()
+    let g:airline_section_y = airline#section#create(['ffenc', '%{strftime("%H:%M")}'])
+endfunction
+autocmd VimEnter * call AirlineInit()
