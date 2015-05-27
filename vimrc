@@ -23,10 +23,9 @@ NeoBundle 'vim-scripts/javacomplete'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'MarcWeber/vim-addon-mw-utils'
 NeoBundle 'tomtom/tlib_vim'
-NeoBundle 'SirVer/ultisnips'
-NeoBundle 'Valloric/YouCompleteMe'
+NeoBundle 'Valloric/YouCompleteMe' , {'do': './install.sh'}
 NeoBundle 'groenewege/vim-less'
-NeoBundle 'joonty/vdebug', {'rev': 'dev'}
+NeoBundle 'joonty/vdebug', {'branch': 'dev'}
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'jiangmiao/auto-pairs'
 NeoBundle 'tomtom/tcomment_vim'
@@ -39,17 +38,23 @@ NeoBundle 'majutsushi/tagbar'
 NeoBundle 'wting/rust.vim'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-unimpaired'
-NeoBundle 'marijnh/tern_for_vim'
+NeoBundle 'marijnh/tern_for_vim', {'do': 'npm install'}
 NeoBundle 'triglav/vim-visual-increment'
 NeoBundle 'sheerun/vim-polyglot'
 NeoBundle 'etaoins/vim-volt-syntax'
-NeoBundle 'mahmoudelbadry/vim-snippets', {'rev': 'my-snippets'}
+NeoBundle 'mahmoudelbadry/vim-snippets', {'branch': 'my-snippets'}
 NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'shime/vim-livedown'
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tommcdo/vim-exchange'
 NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'airblade/vim-gitgutter'
+NeoBundle 'SirVer/ultisnips'
+NeoBundle 'tpope/vim-sensible'
+NeoBundle 'justinmk/vim-sneak'
+NeoBundle 'Valloric/MatchTagAlways'
+NeoBundle 'jbgutierrez/vim-partial'
+NeoBundle 'benjaminwhite/Benokai'
 call neobundle#end()
 "settings
 filetype plugin on
@@ -57,7 +62,7 @@ filetype plugin indent on
 set t_Co=256
 syntax on 
 set background=dark
-colorscheme monokai 
+colorscheme Benokai 
 set expandtab
 set tabstop=4
 set shiftwidth=4

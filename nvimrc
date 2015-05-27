@@ -45,10 +45,10 @@ Plug 'airblade/vim-gitgutter'
 Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-sensible'
 Plug 'justinmk/vim-sneak'
-Plug 'inside/vim-search-pulse'
+" Plug 'inside/vim-search-pulse'
 Plug 'Valloric/MatchTagAlways'
 Plug 'jbgutierrez/vim-partial'
-Plug 'chriskempson/tomorrow-theme'
+Plug 'benjaminwhite/Benokai'
 call plug#end()
 set ttimeout
 set ttimeoutlen=0
@@ -59,7 +59,7 @@ filetype plugin on
 filetype plugin indent on
 set t_Co=256
 set background=dark
-colorscheme monokai
+colorscheme Benokai
 set expandtab
 set tabstop=4
 set shiftwidth=4
@@ -113,6 +113,7 @@ let g:tagbar_type_javascript = {
 "Airline settings
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='jellybeans'
 " let g:airline_theme='wombat'
 let g:UltiSnipsExpandTrigger="<C-g>"
 let g:UltiSnipsJumpForwardTrigger="<C-1>"
@@ -202,3 +203,5 @@ function! AirlineInit()
     let g:airline_section_y = airline#section#create(['ffenc', '%{strftime("%H:%M")}'])
 endfunction
 autocmd VimEnter * call AirlineInit()
+autocmd TermOpen * :set number
+autocmd TermOpen * :set relativenumber
