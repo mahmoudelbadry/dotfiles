@@ -8,7 +8,6 @@ call plug#begin('~/.nvim/plugged')
 "plugins
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-markdown'
-Plug 'scrooloose/nerdtree'
 Plug 'taglist.vim'
 Plug 'walm/jshint.vim'
 Plug 'mattn/emmet-vim'
@@ -19,14 +18,14 @@ Plug 'tomtom/tlib_vim'
 Plug 'Valloric/YouCompleteMe' , {'do': './install.sh'}
 Plug 'groenewege/vim-less'
 Plug 'joonty/vdebug', {'branch': 'dev'}
-Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tomtom/tcomment_vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'ervandew/supertab'
 Plug 'sickill/vim-monokai'
 Plug 'tpope/vim-vinegar'
-Plug 'scrooloose/syntastic'
+" Plug 'scrooloose/syntastic'
 Plug 'majutsushi/tagbar'
 Plug 'wting/rust.vim'
 Plug 'tpope/vim-surround'
@@ -45,21 +44,28 @@ Plug 'airblade/vim-gitgutter'
 Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-sensible'
 Plug 'justinmk/vim-sneak'
+Plug 'benekastah/neomake'
 " Plug 'inside/vim-search-pulse'
 Plug 'Valloric/MatchTagAlways'
 Plug 'jbgutierrez/vim-partial'
 Plug 'benjaminwhite/Benokai'
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'chriskempson/base16-vim'
 call plug#end()
+let g:neomake_verbose = 0
+set t_Co=256
 set ttimeout
 set ttimeoutlen=0
 set lazyredraw
 set nobomb
+set ignorecase
+set smartcase
 "settings
 filetype plugin on
 filetype plugin indent on
 set t_Co=256
 set background=dark
-colorscheme Benokai
+colorscheme Benokai 
 set expandtab
 set tabstop=4
 set shiftwidth=4
@@ -122,6 +128,7 @@ let g:UltiSnipsJumpBackwardTrigger="<C-2>"
 set guioptions-=T
 set guioptions-=m
 set iskeyword-=_
+let g:gitgutter_max_signs = 5000
 "functions
 function! NumberToggle()
 	if(&relativenumber == 1)
@@ -157,6 +164,9 @@ nnoremap b] :bn<CR>
 nnoremap b# :b#<CR>
 nnoremap <C-Tab> gt
 nnoremap <S-Tab> gT
+nnoremap <leader>p "+p
+vnoremap <leader>p "+p
+tnoremap <leader>p "+p
 map gm :call LivedownPreview()<CR>
 
 if executable('ag')
@@ -167,7 +177,7 @@ if executable('ag')
     let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
 let g:python_host_prog='/usr/bin/python'
-nmap <leader>p :call <SID>SynStack()<CR>
+nmap <leader>f :call <SID>SynStack()<CR>
 function! <SID>SynStack()
     if !exists("*synstack")
         return
@@ -189,8 +199,9 @@ let g:mta_filetypes = {
 let g:partial_templates = {
       \   'volt': '{% include %s %}',
       \ }
-tnoremap <C-a> <C-\><C-n>
-nnoremap <leader>t :terminal<CR>
+let g:gitgutter_override_sign_column_highlight = 0
+tnoremap <M-a> <C-\><C-n>
+nnoremap <leader>tt :terminal<CR>
 tnoremap <C-k> <C-\><C-n><C-w>k
 tnoremap <C-j> <C-\><C-n><C-w>j
 tnoremap <C-h> <C-\><C-n><C-w>h
@@ -205,3 +216,10 @@ endfunction
 autocmd VimEnter * call AirlineInit()
 autocmd TermOpen * :set number
 autocmd TermOpen * :set relativenumber
+if g:colors_name == "Benokai"
+    hi SignColumn ctermbg=237 cterm=NONE guibg=#3c3d37 gui=NONE
+    hi link GitGutterAdd LineNr
+    hi link GitGutterChange LineNr
+    hi link GitGutterDelete LineNr
+    hi link GitGutterChangeDelete LineNr
+endif

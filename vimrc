@@ -55,6 +55,7 @@ NeoBundle 'justinmk/vim-sneak'
 NeoBundle 'Valloric/MatchTagAlways'
 NeoBundle 'jbgutierrez/vim-partial'
 NeoBundle 'benjaminwhite/Benokai'
+NeoBundle 'NLKNguyen/papercolor-theme'
 call neobundle#end()
 "settings
 filetype plugin on
@@ -63,6 +64,8 @@ set t_Co=256
 syntax on 
 set background=dark
 colorscheme Benokai 
+set ignorecase
+set smartcase
 set expandtab
 set tabstop=4
 set shiftwidth=4
@@ -116,13 +119,14 @@ let g:tagbar_type_javascript = {
 "Airline settings
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled = 1
-" let g:airline_theme='wombat'
+let g:airline_theme='jellybeans'
 
 let g:UltiSnipsExpandTrigger="<c-k>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 set guioptions-=T
 set guioptions-=m
+set guifont=Hack\ 10
 "functions
 function! NumberToggle()
 	if(&relativenumber == 1)
