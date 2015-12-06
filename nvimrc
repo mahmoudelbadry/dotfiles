@@ -3,7 +3,7 @@ set nocompatible
 filetype off
 set splitbelow
 set splitright
-call plug#begin('~/.nvim/plugged')
+call plug#begin('~/.config/nvim/plugged')
 
 "plugins
 Plug 'tpope/vim-rails'
@@ -18,7 +18,7 @@ Plug 'tomtom/tlib_vim'
 Plug 'Valloric/YouCompleteMe' , {'do': './install.sh'}
 Plug 'groenewege/vim-less'
 Plug 'joonty/vdebug', {'branch': 'dev'}
-Plug 'ctrlpvim/ctrlp.vim'
+" Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tomtom/tcomment_vim'
 Plug 'editorconfig/editorconfig-vim'
@@ -51,6 +51,8 @@ Plug 'jbgutierrez/vim-partial'
 Plug 'benjaminwhite/Benokai'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'chriskempson/base16-vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 call plug#end()
 let g:neomake_verbose = 0
 set t_Co=256
@@ -103,14 +105,15 @@ let g:vdebug_options= {
     \}
 
 "CtrlP settings
-let g:ctrlp_cmd = 'CtrlPMixed'
-let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_use_caching = 1
-let g:ctrlp_clear_cache_on_exit = 0
-let g:ctrlp_buftag_types = {
-\ 'rust' : '--language-force=rust --rust-types=fTm',
-\ }
-let g:ctrlp_jump_to_buffer = 2 " Jump to tab AND buffer if already open
+" let g:ctrlp_cmd = 'CtrlPMixed'
+" let g:ctrlp_working_path_mode = 'ra'
+" let g:ctrlp_use_caching = 1
+" let g:ctrlp_clear_cache_on_exit = 0
+" let g:ctrlp_buftag_types = {
+" \ 'rust' : '--language-force=rust --rust-types=fTm',
+" \ }
+" let g:ctrlp_jump_to_buffer = 2 " Jump to tab AND buffer if already open
+
 
 let g:tagbar_type_javascript = {
     \ 'ctagsbin' : '~/local/bin/jsctags'
@@ -139,6 +142,8 @@ function! NumberToggle()
 endfunc
 
 "Mappings
+map <C-p> :FZF<CR>
+map <C-m> :BTags<CR>
 nnoremap <leader>k :grep! "\b<C-R><C-W>\b":cw<CR>
 nnoremap <leader>b :TagbarToggle<CR>
 nnoremap <leader>a gg=G''
@@ -150,8 +155,8 @@ autocmd FileType php set commentstring=//\ %s
 autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
 map <C-s> :w <CR>
 inoremap <C-s> <ESC>:w<CR>a
-map <C-f> :NERDTreeToggle<CR>
-map <C-m> :CtrlPBufTag<CR>
+" map <C-f> :NERDTreeToggle<CR>
+" map <C-m> :CtrlPBufTag<CR>
 nnoremap <leader>m zf%
 nnoremap <leader><leader>v :e $MYVIMRC<CR>
 nnoremap <C-F9> :call NumberToggle()<cr>
