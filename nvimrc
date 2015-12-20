@@ -53,6 +53,7 @@ Plug 'NLKNguyen/papercolor-theme'
 Plug 'chriskempson/base16-vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/vim-peekaboo'
 call plug#end()
 let g:neomake_verbose = 0
 set t_Co=256
@@ -115,6 +116,7 @@ let g:vdebug_options= {
 " let g:ctrlp_jump_to_buffer = 2 " Jump to tab AND buffer if already open
 
 
+let g:peekaboo_window = 'vertical botright 80new'
 let g:tagbar_type_javascript = {
     \ 'ctagsbin' : '~/local/bin/jsctags'
     \ }
@@ -215,6 +217,8 @@ nnoremap <leader>ts :split<CR>:terminal<CR>
 nnoremap <leader>tv :vsplit<CR>:terminal<CR>
 nnoremap <leader>s :split<CR>
 nnoremap <leader>v :vsplit<CR>
+inoremap <M-c> <ESC>j0a
+nnoremap <M-c> <ESC>j0a
 function! AirlineInit()
     let g:airline_section_y = airline#section#create(['ffenc', '%{strftime("%H:%M")}'])
 endfunction
