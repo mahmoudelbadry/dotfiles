@@ -11,7 +11,6 @@ svn
 common-aliases
 vundle
 cp
-vi-mode 
 
 
 # Syntax highlighting bundle.
@@ -38,10 +37,11 @@ export PATH=$PATH:/usr/local/go/bin
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 EDITOR=gvim
 source ~/.nvm/nvm.sh
-bindkey -M vicmd '?' history-incremental-search-backward
 alias betty=/home/bedo/betty/main.rb
 
 rvm default
 stty -ixon
 
 [ -s "/home/bedo/.kre/kvm/kvm.sh" ] && . "/home/bedo/.kre/kvm/kvm.sh" # Load kvm
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
