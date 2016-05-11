@@ -1,71 +1,79 @@
+setglobal fileencoding=utf-8
 set number
+set t_Co=256
 set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/neobundle.vim/
 set splitbelow
 set splitright
-set ttimeout
-set ttimeoutlen=0
-call neobundle#begin(expand('~/.vim/bundle/')) 
-
-"vundle bundle
-" Plugin 'gmarik/vundle'
-NeoBundleFetch 'Shougo/neobundle.vim'
+if has("nvim")
+    call plug#begin('~/.config/nvim/plugged')
+else
+    call plug#begin('~/.vim/plugged')
+endif
 
 "plugins
-NeoBundle 'tpope/vim-rails'
-NeoBundle 'tpope/vim-markdown'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'taglist.vim'
-NeoBundle 'walm/jshint.vim'
-NeoBundle 'mattn/emmet-vim'
-NeoBundle 'vim-scripts/javacomplete'
-NeoBundle 'bling/vim-airline'
-NeoBundle 'MarcWeber/vim-addon-mw-utils'
-NeoBundle 'tomtom/tlib_vim'
-NeoBundle 'Valloric/YouCompleteMe' , {'do': './install.sh'}
-NeoBundle 'groenewege/vim-less'
-NeoBundle 'joonty/vdebug', {'branch': 'dev'}
-NeoBundle 'kien/ctrlp.vim'
-NeoBundle 'jiangmiao/auto-pairs'
-NeoBundle 'tomtom/tcomment_vim'
-NeoBundle 'editorconfig/editorconfig-vim'
-NeoBundle 'ervandew/supertab'
-NeoBundle 'sickill/vim-monokai'
-NeoBundle 'tpope/vim-vinegar'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'majutsushi/tagbar'
-NeoBundle 'wting/rust.vim'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'tpope/vim-unimpaired'
-NeoBundle 'marijnh/tern_for_vim', {'do': 'npm install'}
-NeoBundle 'triglav/vim-visual-increment'
-NeoBundle 'sheerun/vim-polyglot'
-NeoBundle 'etaoins/vim-volt-syntax'
-NeoBundle 'mahmoudelbadry/vim-snippets', {'branch': 'my-snippets'}
-NeoBundle 'christoomey/vim-tmux-navigator'
-NeoBundle 'shime/vim-livedown'
-NeoBundle 'tpope/vim-repeat'
-NeoBundle 'tommcdo/vim-exchange'
-NeoBundle 'terryma/vim-multiple-cursors'
-NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'SirVer/ultisnips'
-NeoBundle 'tpope/vim-sensible'
-NeoBundle 'justinmk/vim-sneak'
-NeoBundle 'Valloric/MatchTagAlways'
-NeoBundle 'jbgutierrez/vim-partial'
-NeoBundle 'benjaminwhite/Benokai'
-NeoBundle 'NLKNguyen/papercolor-theme'
-call neobundle#end()
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-markdown'
+Plug 'taglist.vim'
+Plug 'walm/jshint.vim'
+Plug 'mattn/emmet-vim'
+Plug 'vim-scripts/javacomplete'
+Plug 'bling/vim-airline'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+Plug 'groenewege/vim-less'
+Plug 'joonty/vdebug', {'branch': 'dev'}
+Plug 'jiangmiao/auto-pairs'
+Plug 'tomtom/tcomment_vim'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'ervandew/supertab'
+Plug 'sickill/vim-monokai'
+Plug 'tpope/vim-vinegar'
+Plug 'majutsushi/tagbar'
+Plug 'wting/rust.vim'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'marijnh/tern_for_vim', {'do': 'npm install'}
+Plug 'triglav/vim-visual-increment'
+Plug 'sheerun/vim-polyglot'
+Plug 'etaoins/vim-volt-syntax'
+Plug 'mahmoudelbadry/vim-snippets', {'branch': 'my-snippets'}
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'shime/vim-livedown'
+Plug 'tpope/vim-repeat'
+Plug 'tommcdo/vim-exchange'
+Plug 'airblade/vim-gitgutter'
+Plug 'SirVer/ultisnips'
+Plug 'tpope/vim-sensible'
+Plug 'justinmk/vim-sneak'
+Plug 'Valloric/MatchTagAlways'
+Plug 'jbgutierrez/vim-partial'
+Plug 'benjaminwhite/Benokai'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'junegunn/vim-peekaboo'
+if has("nvim")
+    Plug 'benekastah/neomake'
+endif
+if !has("nvim")
+    Plug 'dermusikman/sonicpi.vim'
+endif
+call plug#end()
+if has("nvim")
+    let g:neomake_verbose = 0
+end
+set t_Co=256
+set ttimeout
+set ttimeoutlen=0
+set lazyredraw
+set nobomb
+set ignorecase
+set smartcase
 "settings
 filetype plugin on
 filetype plugin indent on
-set t_Co=256
-syntax on 
 set background=dark
-colorscheme Benokai 
-set ignorecase
-set smartcase
+colorscheme Benokai
 set expandtab
 set tabstop=4
 set shiftwidth=4
@@ -102,16 +110,7 @@ let g:vdebug_options= {
     \ "marker_open_tree" : '▾'
     \}
 
-"CtrlP settings
-let g:ctrlp_cmd = 'CtrlPMixed'
-let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_use_caching = 1
-let g:ctrlp_clear_cache_on_exit = 0
-let g:ctrlp_buftag_types = {
-\ 'rust' : '--language-force=rust --rust-types=fTm',
-\ }
-let g:ctrlp_jump_to_buffer = 2 " Jump to tab AND buffer if already open
-
+let g:peekaboo_window = 'vertical botright 80new'
 let g:tagbar_type_javascript = {
     \ 'ctagsbin' : '~/local/bin/jsctags'
     \ }
@@ -120,13 +119,15 @@ let g:tagbar_type_javascript = {
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='jellybeans'
-
-let g:UltiSnipsExpandTrigger="<c-k>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" let g:airline_theme='wombat'
+let g:UltiSnipsExpandTrigger="<C-g>"
+let g:UltiSnipsJumpForwardTrigger="<C-1>"
+let g:UltiSnipsJumpBackwardTrigger="<C-2>"
+" let g:UltiSnipsSnippetsDir="~/.nvim"
 set guioptions-=T
 set guioptions-=m
-set guifont=Hack\ 10
+set iskeyword-=_
+let g:gitgutter_max_signs = 5000
 "functions
 function! NumberToggle()
 	if(&relativenumber == 1)
@@ -137,6 +138,8 @@ function! NumberToggle()
 endfunc
 
 "Mappings
+map <C-p> :FZF<CR>
+map <C-m> :BTags<CR>
 nnoremap <leader>k :grep! "\b<C-R><C-W>\b":cw<CR>
 nnoremap <leader>b :TagbarToggle<CR>
 nnoremap <leader>a gg=G''
@@ -148,10 +151,8 @@ autocmd FileType php set commentstring=//\ %s
 autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
 map <C-s> :w <CR>
 inoremap <C-s> <ESC>:w<CR>a
-map <C-f> :NERDTreeToggle<CR>
-map <C-m> :CtrlPBufTag<CR>
 nnoremap <leader>m zf%
-nnoremap <leader>v :tabe $MYVIMRC<CR>
+nnoremap <leader><leader>v :e $MYVIMRC<CR>
 nnoremap <C-F9> :call NumberToggle()<cr>
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
@@ -162,20 +163,59 @@ nnoremap b] :bn<CR>
 nnoremap b# :b#<CR>
 nnoremap <C-Tab> gt
 nnoremap <S-Tab> gT
+nnoremap <leader>p "+p
+vnoremap <leader>p "+p
 map gm :call LivedownPreview()<CR>
 
-if executable('ag')
-      " Use ag over grep
-    set grepprg=agi
-      "     " Use ag in CtrlP for listing files. Lightning fast and respects
-      "     .gitignore
-    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-endif
-nmap <leader>p :call <SID>SynStack()<CR>
+let g:python_host_prog='/usr/bin/python'
+nmap <leader>f :call <SID>SynStack()<CR>
 function! <SID>SynStack()
     if !exists("*synstack")
         return
     endif
     echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
-set nobomb
+hi! link htmlTag Function
+hi! link htmlTagName Statement
+hi! link htmlEndTag Identifier
+hi! link htmlArg Type
+let g:sneak#streak = 1
+let g:mta_filetypes = {
+    \ 'html' : 1,
+    \ 'xhtml' : 1,
+    \ 'xml' : 1,
+    \ 'jinja' : 1,
+    \ 'volt' : 1,
+    \}
+let g:partial_templates = {
+      \   'volt': '{% include %s %}',
+      \ }
+let g:gitgutter_override_sign_column_highlight = 0
+if has("nvim")
+    nnoremap <leader>tt :terminal<CR>
+    tnoremap <leader>p "+p
+    tnoremap <M-a> <C-\><C-n>
+    tnoremap <C-k> <C-\><C-n><C-w>k
+    tnoremap <C-j> <C-\><C-n><C-w>j
+    tnoremap <C-h> <C-\><C-n><C-w>h
+    tnoremap <C-l> <C-\><C-n><C-w>l
+    nnoremap <leader>ts :split<CR>:terminal<CR>
+    nnoremap <leader>tv :vsplit<CR>:terminal<CR>
+    nnoremap <leader>s :split<CR>
+    nnoremap <leader>v :vsplit<CR>
+    inoremap <M-c> <ESC>j0a
+    nnoremap <M-c> <ESC>j0a
+    autocmd TermOpen * :set number
+    autocmd TermOpen * :set relativenumber
+endif
+function! AirlineInit()
+    let g:airline_section_y = airline#section#create(['ffenc', '%{strftime("%H:%M")}'])
+endfunction
+autocmd VimEnter * call AirlineInit()
+if g:colors_name == "Benokai"
+    hi SignColumn ctermbg=237 cterm=NONE guibg=#3c3d37 gui=NONE
+    hi link GitGutterAdd LineNr
+    hi link GitGutterChange LineNr
+    hi link GitGutterDelete LineNr
+    hi link GitGutterChangeDelete LineNr
+endif
