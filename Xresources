@@ -1,5 +1,6 @@
-URxvt*termName : rxvt-unicode
+URxvt*termName : rxvt-unicode-256color
 URxvt*scrollBar : false
 URxvt*background : #1c1c1c
 URxvt*foreground : #ffffff
-URxvt*font: xft:Hack:regular:size=10
+URxvt*font: xft:Hack:regular:size=10,xft:DejaVu Sans Mono for Powerline:Book:size=10
+URxvt*letterSpace: -1
