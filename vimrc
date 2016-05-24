@@ -28,7 +28,6 @@ Plug 'groenewege/vim-less'
 Plug 'joonty/vdebug', {'branch': 'dev'}
 Plug 'jiangmiao/auto-pairs'
 Plug 'tomtom/tcomment_vim'
-" Plug 'editorconfig/editorconfig-vim'
 Plug 'ervandew/supertab'
 Plug 'sickill/vim-monokai'
 Plug 'tpope/vim-vinegar'
@@ -40,13 +39,9 @@ Plug 'marijnh/tern_for_vim', {'do': 'npm install'}
 Plug 'triglav/vim-visual-increment'
 Plug 'sheerun/vim-polyglot'
 Plug 'etaoins/vim-volt-syntax'
-" Plug 'mahmoudelbadry/vim-snippets', {'branch': 'my-snippets'}
-" Plug 'christoomey/vim-tmux-navigator'
 Plug 'shime/vim-livedown'
 Plug 'tpope/vim-repeat'
 Plug 'tommcdo/vim-exchange'
-" Plug 'airblade/vim-gitgutter'
-" Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-sensible'
 Plug 'justinmk/vim-sneak'
 Plug 'Valloric/MatchTagAlways'
@@ -54,11 +49,16 @@ Plug 'jbgutierrez/vim-partial'
 Plug 'benjaminwhite/Benokai'
 Plug 'vim-airline/vim-airline-themes'
 if has("win32")
-Plug 'ctrlpvim/ctrlp.vim'
+    Plug 'ctrlpvim/ctrlp.vim'
 else
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+    Plug 'editorconfig/editorconfig-vim'
+    Plug 'mahmoudelbadry/vim-snippets', {'branch': 'my-snippets'}
+    Plug 'christoomey/vim-tmux-navigator'
+    Plug 'airblade/vim-gitgutter'
+    Plug 'SirVer/ultisnips'
+    Plug 'junegunn/fzf.vim'
 endif
-Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-peekaboo'
 if has("nvim")
     Plug 'benekastah/neomake'
