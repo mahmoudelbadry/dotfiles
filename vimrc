@@ -5,10 +5,13 @@ set nocompatible
 filetype off
 set splitbelow
 set splitright
-if has("nvim")
-    call plug#begin('~/.config/nvim/plugged')
+set backspace=indent,eol,start
+if has("win32")
+    call plug#begin('$HOME\vim\plugged')
+elseif has("nvim")
+    call plug#begin('$HOME/.config/nvim/plugged')
 else
-    call plug#begin('~/.vim/plugged')
+    call plug#begin('$HOME/.vim/plugged')
 endif
 
 "plugins
@@ -25,7 +28,7 @@ Plug 'groenewege/vim-less'
 Plug 'joonty/vdebug', {'branch': 'dev'}
 Plug 'jiangmiao/auto-pairs'
 Plug 'tomtom/tcomment_vim'
-Plug 'editorconfig/editorconfig-vim'
+" Plug 'editorconfig/editorconfig-vim'
 Plug 'ervandew/supertab'
 Plug 'sickill/vim-monokai'
 Plug 'tpope/vim-vinegar'
@@ -37,19 +40,24 @@ Plug 'marijnh/tern_for_vim', {'do': 'npm install'}
 Plug 'triglav/vim-visual-increment'
 Plug 'sheerun/vim-polyglot'
 Plug 'etaoins/vim-volt-syntax'
-Plug 'mahmoudelbadry/vim-snippets', {'branch': 'my-snippets'}
-Plug 'christoomey/vim-tmux-navigator'
+" Plug 'mahmoudelbadry/vim-snippets', {'branch': 'my-snippets'}
+" Plug 'christoomey/vim-tmux-navigator'
 Plug 'shime/vim-livedown'
 Plug 'tpope/vim-repeat'
 Plug 'tommcdo/vim-exchange'
-Plug 'airblade/vim-gitgutter'
-Plug 'SirVer/ultisnips'
+" Plug 'airblade/vim-gitgutter'
+" Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-sensible'
 Plug 'justinmk/vim-sneak'
 Plug 'Valloric/MatchTagAlways'
 Plug 'jbgutierrez/vim-partial'
 Plug 'benjaminwhite/Benokai'
+Plug 'vim-airline/vim-airline-themes'
+if has("win32")
+Plug 'ctrlpvim/ctrlp.vim'
+else
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+endif
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-peekaboo'
 if has("nvim")
@@ -88,6 +96,9 @@ set noswapfile
 set nobackup
 set undodir=~/.vim/undo
 set mouse=a
+if has("gui_running")
+       set guifont=Hack:h10:cANSI
+endif
 
 let mapleader=','
 
@@ -138,8 +149,19 @@ function! NumberToggle()
 endfunc
 
 "Mappings
-map <C-p> :FZF<CR>
-map <C-m> :BTags<CR>
+if has("win32")
+    let g:ctrlp_cmd = 'CtrlPMixed'
+    let g:ctrlp_working_path_mode = 'ra'
+    let g:ctrlp_use_caching = 1
+    let g:ctrlp_clear_cache_on_exit = 0
+    let g:ctrlp_buftag_types = {
+                \ 'rust' : '--language-force=rust --rust-types=fTm',
+                \ }
+    let g:ctrlp_jump_to_buffer = 2 " Jump to tab AND buffer if already open
+else
+    map <C-p> :FZF<CR>
+    map <C-m> :BTags<CR>
+endif
 nnoremap <leader>k :grep! "\b<C-R><C-W>\b":cw<CR>
 nnoremap <leader>b :TagbarToggle<CR>
 nnoremap <leader>a gg=G''
