@@ -242,3 +242,4 @@ if g:colors_name == "Benokai"
     hi link GitGutterDelete LineNr
     hi link GitGutterChangeDelete LineNr
 endif
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
