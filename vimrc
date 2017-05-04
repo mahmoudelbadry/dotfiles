@@ -91,6 +91,7 @@ set hidden
 set relativenumber
 let g:livedown_autostart = 0
 let g:livedown_port = 1337
+hi Normal guibg=NONE ctermbg=NONE
 " Local dirs
 set noswapfile
 set nobackup
