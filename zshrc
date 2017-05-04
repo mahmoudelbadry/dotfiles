@@ -30,6 +30,7 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 EDITOR=gvim
 source ~/.nvm/nvm.sh
 alias betty=/home/bedo/betty/main.rb
+alias nv=nvim
 
 rvm default
 stty -ixon
