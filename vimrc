@@ -35,7 +35,6 @@ Plug 'majutsushi/tagbar'
 Plug 'wting/rust.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
-Plug 'marijnh/tern_for_vim', {'do': 'npm install'}
 Plug 'triglav/vim-visual-increment'
 Plug 'sheerun/vim-polyglot'
 Plug 'etaoins/vim-volt-syntax'
@@ -48,6 +47,9 @@ Plug 'Valloric/MatchTagAlways'
 Plug 'jbgutierrez/vim-partial'
 Plug 'benjaminwhite/Benokai'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'Quramy/vim-js-pretty-template'
+Plug 'junegunn/vim-peekaboo'
+Plug 'Shougo/vimproc', { 'do': 'make' }
 if has("win32")
     Plug 'ctrlpvim/ctrlp.vim'
 else
@@ -56,20 +58,19 @@ else
     Plug 'mahmoudelbadry/vim-snippets', {'branch': 'my-snippets'}
     Plug 'christoomey/vim-tmux-navigator'
     Plug 'airblade/vim-gitgutter'
-    Plug 'SirVer/ultisnips'
+    " Plug 'SirVer/ultisnips'
     Plug 'junegunn/fzf.vim'
-endif
-Plug 'junegunn/vim-peekaboo'
-if has("nvim")
-    Plug 'benekastah/neomake'
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'], 'do': 'npm install' }
+    Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
+    Plug 'Quramy/tsuquyomi', { 'for': ['typescript'] }
+    Plug 'mhartington/nvim-typescript',  {'do': ':UpdateRemotePlugins', 'for': ['typescript']}
+    Plug 'neomake/neomake'
 endif
 if !has("nvim")
     Plug 'dermusikman/sonicpi.vim'
 endif
 call plug#end()
-if has("nvim")
-    let g:neomake_verbose = 0
-end
 set t_Co=256
 set ttimeout
 set ttimeoutlen=0
@@ -77,6 +78,7 @@ set lazyredraw
 set nobomb
 set ignorecase
 set smartcase
+let g:python3_host_prog='/usr/bin/python3'
 "settings
 filetype plugin on
 filetype plugin indent on
@@ -243,3 +245,5 @@ if g:colors_name == "Benokai"
     hi link GitGutterChangeDelete LineNr
 endif
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+let g:deoplete#enable_at_startup = 1
+let g:SuperTabDefaultCompletionType = "<c-n>"
