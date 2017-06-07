@@ -20,7 +20,7 @@ Plug 'tpope/vim-markdown'
 Plug 'taglist.vim'
 Plug 'walm/jshint.vim'
 Plug 'mattn/emmet-vim'
-Plug 'vim-scripts/javacomplete'
+Plug 'artur-shaik/vim-javacomplete2'
 Plug 'bling/vim-airline'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
@@ -247,3 +247,11 @@ endif
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 let g:deoplete#enable_at_startup = 1
 let g:SuperTabDefaultCompletionType = "<c-n>"
+map <PageUp> <Nop>
+map <PageDown> <Nop>
+inoremap <PageUp> <Nop>
+inoremap <PageDown> <Nop>
+set nofixeol
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
+nmap <F4> <Plug>(JavaComplete-Imports-AddSmart)
+imap <F4> <Plug>(JavaComplete-Imports-AddSmart)
