@@ -27,7 +27,7 @@ export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$HOME/.config/composer/vendor/bin
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-EDITOR=gvim
+export EDITOR=nvim
 source ~/.nvm/nvm.sh
 alias betty=/home/bedo/betty/main.rb
 alias nv=nvim
