@@ -50,6 +50,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'Quramy/vim-js-pretty-template'
 Plug 'junegunn/vim-peekaboo'
 Plug 'Shougo/vimproc', { 'do': 'make' }
+Plug 'junegunn/vim-easy-align'
 if has("win32")
     Plug 'ctrlpvim/ctrlp.vim'
 else
@@ -255,3 +256,5 @@ set nofixeol
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
 nmap <F4> <Plug>(JavaComplete-Imports-AddSmart)
 imap <F4> <Plug>(JavaComplete-Imports-AddSmart)
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
