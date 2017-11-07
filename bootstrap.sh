@@ -22,6 +22,7 @@ fi
 ln -s "$HOME/dotfiles/zshrc" "$HOME/.zshrc"
 ln -s "$HOME/dotfiles/tmux.conf" "$HOME/.tmux.conf"
 ln -s "$HOME/dotfiles/editorconfig" "$HOME/.editorconfig"
+ln -s "$HOME/dotfiles/ctags" "$HOME/.ctags"
 
 nvim +PlugInstall +:qall
 vim +PlugInstall +:qall
