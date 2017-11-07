@@ -1,0 +1,2 @@
+[*.{ts,js}]
+end_of_line=crlf
