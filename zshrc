@@ -3,7 +3,6 @@ source $HOME/.zgen/zgen.zsh
 if ! zgen saved; then
     zgen oh-my-zsh
     zgen oh-my-zsh plugins/git
-    zgen oh-my-zsh plugins/svn
     zgen oh-my-zsh plugins/common-aliases
     zgen oh-my-zsh plugins/vundle
     zgen oh-my-zsh plugins/cp
@@ -21,8 +20,9 @@ ZGEN_RESET_ON_CHANGE=(${HOME}/.zshrc)
 
 export PATH=$PATH:/home/bedo/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/bedo/.rvm/bin
 export PATH=$HOME/local/bin:$PATH
-export PATH=$HOME/android/sdk/tools:$PATH
-export PATH=$HOME/android/sdk/platform-tools:$PATH
+export PATH=$HOME/android-sdk-tools/tools:$PATH
+export PATH=$HOME/android-sdk-tools/platform-tools:$PATH
+export PATH=$HOME/Android/Sdk/build-tools/25.0.3:$PATH
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$HOME/.config/composer/vendor/bin
@@ -39,5 +39,8 @@ stty -ixon
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export FZF_DEFAULT_COMMAND='ag -g ""'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+function apksign() {
+    jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore $2 $1 123
+    zipalign -v 4 $1 $3
+}
+
