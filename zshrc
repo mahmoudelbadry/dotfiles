@@ -6,7 +6,6 @@ if ! zgen saved; then
     zgen oh-my-zsh plugins/common-aliases
     zgen oh-my-zsh plugins/vundle
     zgen oh-my-zsh plugins/cp
-    zgen oh-my-zsh themes/robbyrussell
     zgen load zsh-users/zsh-syntax-highlighting
     zgen load rupa/z
     zgen load mahmoudelbadry/zsh-aliases
@@ -14,6 +13,8 @@ if ! zgen saved; then
     zgen load mahmoudelbadry/zsh-svn
     zgen load mahmoudelbadry/zsh-launch
     zgen load Tarrasch/zsh-bd
+    zgen load mafredri/zsh-async
+    zgen load denysdovhan/spaceship-prompt spaceship
     zgen save
 fi
 ZGEN_RESET_ON_CHANGE=(${HOME}/.zshrc)
