@@ -34,6 +34,7 @@ export EDITOR=nvim
 source ~/.nvm/nvm.sh
 alias betty=/home/bedo/betty/main.rb
 alias nv=nvim
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow'
 
 rvm default
 stty -ixon
