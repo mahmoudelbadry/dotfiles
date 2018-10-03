@@ -15,29 +15,19 @@ else
 endif
 
 "plugins
-Plug 'tpope/vim-rails'
-Plug 'tpope/vim-markdown'
-Plug 'taglist.vim'
-Plug 'walm/jshint.vim'
+Plug 'vim-scripts/taglist.vim'
 Plug 'mattn/emmet-vim'
-Plug 'artur-shaik/vim-javacomplete2'
 Plug 'bling/vim-airline'
-Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
-Plug 'groenewege/vim-less'
 Plug 'joonty/vdebug', {'branch': 'dev'}
 Plug 'jiangmiao/auto-pairs'
 Plug 'tomtom/tcomment_vim'
-Plug 'ervandew/supertab'
-Plug 'sickill/vim-monokai'
 Plug 'tpope/vim-vinegar'
 Plug 'majutsushi/tagbar'
-Plug 'wting/rust.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'triglav/vim-visual-increment'
 Plug 'sheerun/vim-polyglot'
-Plug 'etaoins/vim-volt-syntax'
 Plug 'shime/vim-livedown'
 Plug 'tpope/vim-repeat'
 Plug 'tommcdo/vim-exchange'
@@ -61,15 +51,11 @@ else
     Plug 'airblade/vim-gitgutter'
     " Plug 'SirVer/ultisnips'
     Plug 'junegunn/fzf.vim'
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-    Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'], 'do': 'npm install' }
-    Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
-    Plug 'Quramy/tsuquyomi', { 'for': ['typescript'] }
-    Plug 'mhartington/nvim-typescript',  {'do': ':UpdateRemotePlugins', 'for': ['typescript']}
-    Plug 'neomake/neomake'
 endif
 if !has("nvim")
     Plug 'dermusikman/sonicpi.vim'
+else
+    Plug 'Valloric/YouCompleteMe', { 'do': './install.py --js-completer --java-completer' }
 endif
 call plug#end()
 set t_Co=256
@@ -163,7 +149,7 @@ if has("win32")
                 \ }
     let g:ctrlp_jump_to_buffer = 2 " Jump to tab AND buffer if already open
 else
-    map <C-p> :FZF<CR>
+    map <C-p> :Files<CR>
     map <C-m> :BTags<CR>
 endif
 nnoremap <leader>k :grep! "\b<C-R><C-W>\b":cw<CR>
@@ -233,6 +219,7 @@ if has("nvim")
     nnoremap <M-c> <ESC>j0a
     autocmd TermOpen * :set number
     autocmd TermOpen * :set relativenumber
+    set guicursor=
 endif
 function! AirlineInit()
     let g:airline_section_y = airline#section#create(['ffenc', '%{strftime("%H:%M")}'])
@@ -245,16 +232,9 @@ if g:colors_name == "Benokai"
     hi link GitGutterDelete LineNr
     hi link GitGutterChangeDelete LineNr
 endif
-let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-let g:deoplete#enable_at_startup = 1
-let g:SuperTabDefaultCompletionType = "<c-n>"
 map <PageUp> <Nop>
 map <PageDown> <Nop>
 inoremap <PageUp> <Nop>
 inoremap <PageDown> <Nop>
-set nofixeol
-autocmd FileType java setlocal omnifunc=javacomplete#Complete
-nmap <F4> <Plug>(JavaComplete-Imports-AddSmart)
-imap <F4> <Plug>(JavaComplete-Imports-AddSmart)
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
