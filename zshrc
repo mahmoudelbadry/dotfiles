@@ -21,12 +21,14 @@ ZGEN_RESET_ON_CHANGE=(${HOME}/.zshrc)
 
 export PATH=$PATH:/home/bedo/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/bedo/.rvm/bin
 export PATH=$HOME/local/bin:$PATH
-export PATH=$HOME/android-sdk-tools/tools:$PATH
-export PATH=$HOME/android-sdk-tools/platform-tools:$PATH
+export PATH=$HOME/Android/Sdk/tools:$PATH
+export PATH=$HOME/Android/Sdk/platform-tools:$PATH
 export PATH=$HOME/Android/Sdk/build-tools/25.0.3:$PATH
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$HOME/.config/composer/vendor/bin
+export PATH=$PATH:$HOME/.cargo/bin
+export PATH=$PATH:$HOME/.linuxbrew/bin:$HOME/.linuxbrew/sbin
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 export EDITOR=nvim
 source ~/.nvm/nvm.sh
