@@ -55,7 +55,8 @@ endif
 if !has("nvim")
     Plug 'dermusikman/sonicpi.vim'
 else
-    Plug 'Valloric/YouCompleteMe', { 'do': './install.py --js-completer --java-completer' }
+    Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+    Plug 'w0rp/ale'
 endif
 call plug#end()
 set t_Co=256
@@ -90,6 +91,10 @@ if has("gui_running")
        set guifont=Hack:h10:cANSI
 endif
 
+if has("nvim")
+  set termguicolors
+end
+
 let mapleader=','
 
 "VDebug settings
@@ -111,6 +116,11 @@ let g:vdebug_options= {
     \ "marker_open_tree" : '▾'
     \}
 
+let g:user_emmet_settings = {
+      \  'javascript' : {
+      \      'extends' : 'jsx',
+      \  },
+      \}
 let g:peekaboo_window = 'vertical botright 80new'
 let g:tagbar_type_javascript = {
     \ 'ctagsbin' : '~/local/bin/jsctags'
@@ -238,3 +248,10 @@ inoremap <PageUp> <Nop>
 inoremap <PageDown> <Nop>
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
+let g:omni_sql_no_default_maps = 1
+let g:ale_fixers = {
+      \   'javascript': ['prettier'],
+      \   'css': ['prettier'],
+      \}
+let g:ale_linters_explicit = 1
+let g:ale_fix_on_save = 1
