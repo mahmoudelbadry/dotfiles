@@ -1,0 +1,24 @@
+Host github.com-personal
+  HostName github.com
+  Preferredauthentications publickey
+  IdentityFile ~/.ssh/keys/github.personal.key
+
+
+
+Host loyalty.dev
+  HostName 192.168.1.0
+  User loyaltyadmin
+  Preferredauthentications publickey,password
+  IdentityFile ~/.ssh/keys/loyalty.key
+  Port 665
+  # LocalForward 1521 localhost:1539
+
+
+
+Host qemu-vm
+    HostName 127.0.0.1
+    Port 22220
+    PreferredAuthentications password
+    PubkeyAuthentication no
+    User mahmoud
+
