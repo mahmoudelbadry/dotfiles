@@ -75,6 +75,7 @@ cpv () {
         rsync -pogbr -hhh --inplace -e /dev/null --progress "$@"
 }
 
+source <(fzf --zsh)
 autoload -Uz compinit && compinit
 zstyle ':completion:*' menu select
 alias ls='ls --color'
@@ -94,7 +95,7 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
