@@ -1,16 +1,8 @@
 return {
   {
-    "loctvl842/monokai-pro.nvim",
+    "tanvirtin/monokai.nvim",
     config = function()
-      require("monokai-pro").setup({
-        filter = "octagon", -- classic | octagon | pro | machine | ristretto | spectrum
-      })
+      require("monokai").setup({ palette = require("monokai").soda })
     end,
-  },
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "monokai-pro",
-    },
-  },
+  }
 }

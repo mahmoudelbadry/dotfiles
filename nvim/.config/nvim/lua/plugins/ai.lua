@@ -8,6 +8,12 @@ return {
       inline = {
         adapter = "openwebui",
       },
+      cmd = {
+        adapter = "openwebui",
+      },
+      workflow = {
+        adapter = "openwebui",
+      },
     },
     adapters = {
       openwebui = function()
@@ -16,7 +22,7 @@ return {
             url = os.getenv("OPEN_WEB_UI_API_URL"),
             api_key = os.getenv("OPEN_WEB_UI_API_KEY"),
             chat_url = "/chat/completions",
-            models_endpoint = "/v1/models",
+            models_endpoint = "/models",
           },
           schema = {
             model = {
