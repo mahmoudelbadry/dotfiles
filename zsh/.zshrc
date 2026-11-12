@@ -41,10 +41,10 @@ export EDITOR=nvim
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
-source "$HOME/.env"
 alias nv=nvim
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow'
 # alias show-cursor="find-cursor --repeat 0 --follow --distance 1 --line-width 16 --color rebeccapurple --size 16"
+eval "$(mise activate zsh)"
 
 # rvm default
 # stty -ixon

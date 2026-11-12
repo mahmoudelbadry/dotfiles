@@ -4,7 +4,7 @@ local wezterm = require("wezterm")
 -- -- This will hold the configuration.
 local config = wezterm.config_builder()
 config.color_scheme = "Monokai Soda (Gogh)"
-config.font = wezterm.font("Hack")
+config.font = wezterm.font("Vazir Code Hack")
 -- config.font = wezterm.font("Departure Mono")
 config.font_size = 13
 config.enable_tab_bar = false
